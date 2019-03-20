@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DB42E0542242BBB00017511D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0532242BBB00017511D /* AppDelegate.swift */; };
-		DB42E0562242BBB00017511D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0552242BBB00017511D /* ViewController.swift */; };
+		DB42E0562242BBB00017511D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0552242BBB00017511D /* MainViewController.swift */; };
 		DB42E0592242BBB10017511D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB42E0572242BBB00017511D /* Main.storyboard */; };
 		DB42E05B2242BBB20017511D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB42E05A2242BBB20017511D /* Assets.xcassets */; };
 		DB42E05E2242BBB20017511D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB42E05C2242BBB20017511D /* LaunchScreen.storyboard */; };
+		DB42E0672242BBEE0017511D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB42E0662242BBEE0017511D /* CoreBluetooth.framework */; };
+		DB42E0692242BC580017511D /* ScanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0682242BC580017511D /* ScanTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB42E0502242BBB00017511D /* BLEDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB42E0532242BBB00017511D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB42E0552242BBB00017511D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB42E0552242BBB00017511D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DB42E0582242BBB00017511D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB42E05A2242BBB20017511D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB42E05D2242BBB20017511D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB42E05F2242BBB20017511D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB42E0662242BBEE0017511D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		DB42E0682242BC580017511D /* ScanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB42E0672242BBEE0017511D /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,7 @@
 			children = (
 				DB42E0522242BBB00017511D /* BLEDemo */,
 				DB42E0512242BBB00017511D /* Products */,
+				DB42E0652242BBED0017511D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +61,22 @@
 			isa = PBXGroup;
 			children = (
 				DB42E0532242BBB00017511D /* AppDelegate.swift */,
-				DB42E0552242BBB00017511D /* ViewController.swift */,
+				DB42E0552242BBB00017511D /* MainViewController.swift */,
 				DB42E0572242BBB00017511D /* Main.storyboard */,
 				DB42E05A2242BBB20017511D /* Assets.xcassets */,
 				DB42E05C2242BBB20017511D /* LaunchScreen.storyboard */,
 				DB42E05F2242BBB20017511D /* Info.plist */,
+				DB42E0682242BC580017511D /* ScanTableViewController.swift */,
 			);
 			path = BLEDemo;
+			sourceTree = "<group>";
+		};
+		DB42E0652242BBED0017511D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB42E0662242BBEE0017511D /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB42E0562242BBB00017511D /* ViewController.swift in Sources */,
+				DB42E0562242BBB00017511D /* MainViewController.swift in Sources */,
 				DB42E0542242BBB00017511D /* AppDelegate.swift in Sources */,
+				DB42E0692242BC580017511D /* ScanTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92S6VPY8H9;
 				INFOPLIST_FILE = BLEDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92S6VPY8H9;
 				INFOPLIST_FILE = BLEDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
