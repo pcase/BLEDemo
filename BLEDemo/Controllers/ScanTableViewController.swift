@@ -12,6 +12,7 @@ import CoreBluetooth
 class ScanTableViewController: UITableViewController, CBCentralManagerDelegate {
     
     var peripherals:[CBPeripheral] = []
+    var rssiDict = [CBPeripheral: NSNumber]()
     var manager:CBCentralManager? = nil
     var parentView:MainViewController? = nil
     
@@ -67,6 +68,7 @@ class ScanTableViewController: UITableViewController, CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if(!peripherals.contains(peripheral)) {
             peripherals.append(peripheral)
+            rssiDict[peripheral] = RSSI
         }
         
         self.tableView.reloadData()
@@ -91,8 +93,9 @@ class ScanTableViewController: UITableViewController, CBCentralManagerDelegate {
             navController.popViewController(animated: true)
         }
         
-        parentView?.updateReceivedMessageText()
-        print("Connected to " +  peripheral.name!)
+        parentView?.updateReceivedMessageText(name: peripheral.name ?? "", rssi: rssiDict[peripheral] ?? 0, state: peripheral.state.rawValue)
+ 
+        
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {

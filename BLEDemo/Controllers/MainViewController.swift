@@ -19,8 +19,12 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CBPeripher
     let BLECharacteristic = "ec0e"
     
     let CONNECTED_MESSAGE = "Connected!"
+    let DOTS = "..."
     
-    @IBOutlet weak var receivedMessageText: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var rssiLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var stateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +32,32 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CBPeripher
         manager = CBCentralManager(delegate: self, queue: nil);
         
         customizeNavigationBar()
+        
+        sendButton.isHidden = true
     }
     
-    func updateReceivedMessageText () {
-        receivedMessageText.text = CONNECTED_MESSAGE
+//    func updateReceivedMessageText () {
+//        receivedMessageText.text = CONNECTED_MESSAGE
+//    }
+//    
+//    func updateReceivedMessageText (text: String) {
+//        receivedMessageText.text = text
+//    }
+    
+    func updateReceivedMessageText (name: String, rssi: NSNumber, state: Int) {
+        nameLabel.text = "Name: " + name
+        rssiLabel.text = "RSSI: " + rssi.stringValue
+        
+        var stateText = ""
+        switch state {
+        case 0: stateText = "disconnected"
+        case 1: stateText = "connecting"
+        case 2: stateText = "connected"
+        case 3: stateText = "disconnecting"
+        default: stateText = "unknown"
+        }
+        
+        stateLabel.text = "State: " + stateText
     }
     
     func customizeNavigationBar () {
@@ -73,6 +99,9 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CBPeripher
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         mainPeripheral = nil
         customizeNavigationBar()
+        nameLabel.text = "Name: "
+        rssiLabel.text = "RSSI: "
+        stateLabel.text = "State: "
         print("Disconnected" + peripheral.name!)
     }
     
@@ -88,6 +117,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CBPeripher
     @objc func disconnectButtonPressed() {
         //this will call didDisconnectPeripheral, but if any other apps are using the device it will not immediately disconnect
         manager?.cancelPeripheralConnection(mainPeripheral!)
+        nameLabel.text = ""
     }
     
     @IBAction func sendButtonPressed(_ sender: AnyObject) {
@@ -189,7 +219,7 @@ class MainViewController: UIViewController, CBCentralManagerDelegate, CBPeripher
             if(characteristic.value != nil) {
                 let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
                 
-                receivedMessageText.text = stringValue
+                nameLabel.text = stringValue
             }
         }
     }

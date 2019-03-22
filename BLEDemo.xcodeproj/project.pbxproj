@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB3273CB224475AA00587BF7 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3273CA224475AA00587BF7 /* Peripheral.swift */; };
 		DB42E0542242BBB00017511D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0532242BBB00017511D /* AppDelegate.swift */; };
 		DB42E0562242BBB00017511D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42E0552242BBB00017511D /* MainViewController.swift */; };
 		DB42E0592242BBB10017511D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB42E0572242BBB00017511D /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB3273CA224475AA00587BF7 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
 		DB42E0502242BBB00017511D /* BLEDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB42E0532242BBB00017511D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB42E0552242BBB00017511D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB3273C72244752300587BF7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB42E0552242BBB00017511D /* MainViewController.swift */,
+				DB42E0682242BC580017511D /* ScanTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB3273C92244753800587BF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB3273CA224475AA00587BF7 /* Peripheral.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DB42E0472242BBB00017511D = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +79,13 @@
 		DB42E0522242BBB00017511D /* BLEDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DB3273C92244753800587BF7 /* Models */,
+				DB3273C72244752300587BF7 /* Controllers */,
 				DB42E0532242BBB00017511D /* AppDelegate.swift */,
-				DB42E0552242BBB00017511D /* MainViewController.swift */,
 				DB42E0572242BBB00017511D /* Main.storyboard */,
 				DB42E05A2242BBB20017511D /* Assets.xcassets */,
 				DB42E05C2242BBB20017511D /* LaunchScreen.storyboard */,
 				DB42E05F2242BBB20017511D /* Info.plist */,
-				DB42E0682242BC580017511D /* ScanTableViewController.swift */,
 			);
 			path = BLEDemo;
 			sourceTree = "<group>";
@@ -153,6 +172,7 @@
 				DB42E0562242BBB00017511D /* MainViewController.swift in Sources */,
 				DB42E0542242BBB00017511D /* AppDelegate.swift in Sources */,
 				DB42E0692242BC580017511D /* ScanTableViewController.swift in Sources */,
+				DB3273CB224475AA00587BF7 /* Peripheral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
